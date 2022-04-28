@@ -1,0 +1,6 @@
+summary: "Redirect to OpenAPI documentation"
+operationId: docsRedirect
+tags: ["docs"]
+responses:
+  301:
+    description: "Redirect"

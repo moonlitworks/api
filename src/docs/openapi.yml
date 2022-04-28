@@ -1,0 +1,12 @@
+openapi: 3.0.3
+info:
+  $ref: "info.yml"
+servers:
+  - url: /
+tags:
+  $ref: "tags.yml"
+# components:
+#   securitySchemes: 
+#     $ref: "security-schemes.yml"
+paths:
+  $ref: "paths/index.yml"

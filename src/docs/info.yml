@@ -1,0 +1,6 @@
+version: "%PACKAGE_VERSION%"
+title: Moonlit Works API
+description: Moonlit Works API endpoints
+contact:
+  name: Moonlit Works
+  url: https://moonlit.works

@@ -1,0 +1,4 @@
+- name: docs
+  description: OpenAPI Documentation
+- name: links
+  description: Links to social media sites

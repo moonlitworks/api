@@ -1,0 +1,26 @@
+SocialLinks:
+  type: array
+  items:
+    $ref: "#/SocialLink"
+
+SocialLink:
+  type: object
+  required:
+    - label
+    - url
+  properties:
+    label:
+      $ref: "#/SocialLinkLabel"
+    url:
+      $ref: "#/SocialLinkUrl"
+
+SocialLinkLabel:
+  type: string
+  description: >
+    A unique dash-delimited label that serves as
+    the identifier of a particular social link url.
+  example: "twitter"
+
+SocialLinkUrl:
+  type: string
+  example: "https://twitter.com/MoonlitWorks"

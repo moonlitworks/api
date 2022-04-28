@@ -1,0 +1,20 @@
+summary: "Get social link"
+operationId: getSocialLink
+tags: ["links"]
+parameters:
+  - name: label
+    in: path
+    required: true
+    description: Link label
+    schema:
+      $ref: "../../schemas.yml#/SocialLinkLabel"
+
+responses:
+  200:
+    description: "Social link URL"
+    content:
+      text/plain:
+        schema:
+          $ref: "../../schemas.yml#/SocialLinkUrl"
+  404:
+    description: "Social link of label not found"
