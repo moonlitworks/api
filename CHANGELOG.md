@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/moonlitworks/api/compare/v0.0.2...v0.0.3) (2022-04-29)
+
+
+### Bug Fixes
+
+* **api:** implement response filter and map ([0ecac93](https://github.com/moonlitworks/api/commit/0ecac9328f4933e524009d9f0bb32ee99af077bd))
+
 ### [0.0.2](https://github.com/moonlitworks/api/compare/v0.0.1...v0.0.2) (2022-04-29)
 
 
