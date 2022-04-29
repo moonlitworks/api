@@ -47,6 +47,53 @@ describe("getSocialLinks", () => {
     expect(statusStub.firstCall?.firstArg).to.eql(200)
   })
 
+  it("should return 200 status code", async () => {
+    sandbox.stub(db, "isConnected").returns(true)
+    sandbox.stub(createLinkMongoRepository, "default").returns(sampleLinkRepository)
+    const jsonStub = sandbox.stub(res, "json")
+
+    await getSocialLinks({} as any, res as any, {} as any)
+
+    expect(jsonStub.firstCall?.firstArg).to.eql([
+      {
+        label: "test-label",
+        url: "test-url",
+      }
+    ])
+  })
+
+  it("should filter inactive links", async () => {
+    sandbox.stub(db, "isConnected").returns(true)
+    sandbox.stub(createLinkMongoRepository, "default").returns({
+      ...sampleLinkRepository,
+      getAll: async () => [
+        {
+          id: "test-id",
+          active: false,
+          label: "test-label",
+          url: "test-url"
+        },
+        {
+          id: "test-id",
+          active: false,
+          label: "test-label",
+          url: "test-url"
+        },
+        {
+          id: "test-id",
+          active: false,
+          label: "test-label",
+          url: "test-url"
+        }
+      ]
+    })
+    const statusStub = sandbox.stub(res, "status").returns(res)
+
+    await getSocialLinks({} as any, res as any, {} as any)
+
+    expect(statusStub.firstCall?.firstArg).to.eql(200)
+  })
+
   it("should call json", async () => {
     sandbox.stub(db, "isConnected").returns(true)
     sandbox.stub(createLinkMongoRepository, "default").returns(sampleLinkRepository)

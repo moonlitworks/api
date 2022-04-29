@@ -54,6 +54,31 @@ describe("getSocialLink", () => {
     expect(statusStub.firstCall?.firstArg).to.eql(404)
   })
 
+  it("should return 404 if results don't have active links", async () => {
+    sandbox.stub(db, "isConnected").returns(true)
+    sandbox.stub(createLinkMongoRepository, "default").returns({
+      ...sampleLinkRepository,
+      query: async () => [
+        {
+          id: "test-id",
+          active: false,
+          label: "test-label",
+          url: "test-url"
+        }
+      ]
+    })
+    const statusStub = sandbox.stub(res, "status").returns(res)
+    const req = {
+      params: {
+        label: "test-label"
+      }
+    }
+
+    await getSocialLink(req as any, res as any, {} as any)
+
+    expect(statusStub.firstCall?.firstArg).to.eql(404)
+  })
+
   it("should set content-type to text/plain", async () => {
     sandbox.stub(db, "isConnected").returns(true)
     sandbox.stub(createLinkMongoRepository, "default").returns(sampleLinkRepository)
