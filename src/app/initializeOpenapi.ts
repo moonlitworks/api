@@ -22,7 +22,6 @@ export default (
     apiDoc: openapiOptions.apiDocFilePath,
     docsPath: openapiOptions.apiDocUrl,
     operations,
-    // securityHandlers: { bearerAuth }
   })
   return app
 }

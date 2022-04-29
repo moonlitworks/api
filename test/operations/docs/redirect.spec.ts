@@ -18,8 +18,8 @@ describe("docsRedirect", () => {
     docsRedirect({} as any, res as any, {} as any)
 
     expect(setStub.calledOnce).to.be.true
-    expect(setStub.firstCall.firstArg).to.eql("location")
-    expect(setStub.firstCall.lastArg).to.eql("/docs")
+    expect(setStub.firstCall?.firstArg).to.eql("location")
+    expect(setStub.firstCall?.lastArg).to.eql("/docs")
   })
 
   it("should return 301 status code", () => {
@@ -33,7 +33,7 @@ describe("docsRedirect", () => {
 
     docsRedirect({} as any, res as any, {} as any)
 
-    expect(statusStub.firstCall.firstArg).to.eql(301)
+    expect(statusStub.firstCall?.firstArg).to.eql(301)
   })
 
   it("should call end", () => {

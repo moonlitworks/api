@@ -1,4 +1,4 @@
-import express from "express";
+import express from "express"
 
 export const logCallback = (port: number) => {
   console.log(`API server running at port ${ port }\nhttp://localhost:${port}`)

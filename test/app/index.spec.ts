@@ -12,6 +12,7 @@ describe("app", () => {
   afterEach(() => { sandbox.restore() })
 
   it("should call setup functions", () => {
+    sandbox.stub(console, "info")
     const setupExpressStub = sandbox.stub(setupExpress, "default")
     const initializeOpenapiStub = sandbox.stub(initializeOpenapi, "default")
     const initializeSwaggerStub = sandbox.stub(initializeSwagger, "default")

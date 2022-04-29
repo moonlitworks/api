@@ -18,7 +18,7 @@ describe("startServer", () => {
     const app = { listen: () => {} }
     const listenStub = sandbox.stub(app, "listen")
     startServer()(app as any)
-    expect(listenStub.firstCall.firstArg).to.eql(80)
+    expect(listenStub.firstCall?.firstArg).to.eql(80)
   })
 
   it("should call log callback", () => {
@@ -26,7 +26,7 @@ describe("startServer", () => {
     const logStub = sandbox.stub(console, "log")
     startServer()(app as any)
     expect(logStub.calledOnce).to.be.true
-    expect(logStub.firstCall.lastArg).to.eql("API server running at port 80\nhttp://localhost:80")
+    expect(logStub.firstCall?.lastArg).to.eql("API server running at port 80\nhttp://localhost:80")
   })
 })
 
