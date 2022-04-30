@@ -4,7 +4,7 @@
   "description": "Moonlit Works API",
   "main": "lib/index.js",
   "author": "Eyzi <contact@eyzi.dev>",
-  "license": "MIT",
+  "license": "MPL-2.0",
   "mocha": {
     "require": [
       "ts-node/register"
