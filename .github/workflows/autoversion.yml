@@ -71,4 +71,4 @@ jobs:
       - name: Build image
         run: docker build -t ${{ steps.tag.outputs.latest }} -t ${{ steps.tag.outputs.version }} .
       - name: Push image
-        run: docker push ${{ steps.tag.outputs.bare }}
+        run: docker image push ${{ steps.tag.outputs.bare }} --all-tags
