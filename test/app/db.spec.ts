@@ -46,6 +46,11 @@ describe("db", () => {
   })
 
   describe("isConnected", () => {
+    it("should return false if db is not initialized", async () => {
+      sandbox.stub(console, "info")
+      expect(db.isConnected()).to.be.false
+    })
+
     it("should return true if readyState is 1", async () => {
       sandbox.stub(console, "info")
       sandbox.stub(mongoose, "connect").resolves({ connection: { readyState: 1 } } as any)
