@@ -10,7 +10,10 @@ const connect = async (dbString: string | undefined) => {
 
 const get = () => db
 
-const isConnected = () => db.connection.readyState === mongoose.ConnectionStates.connected
+const isConnected = () => {
+  // if (!db) return false
+  return db.connection.readyState === mongoose.ConnectionStates.connected
+}
 
 const close = async () => db.disconnect()
 

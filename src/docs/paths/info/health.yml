@@ -1,0 +1,17 @@
+summary: "API health"
+operationId: health
+tags: ["info"]
+responses:
+  200:
+    description: "Healthy"
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+          properties:
+            status:
+              type: string
+              enum:
+                - "UP"

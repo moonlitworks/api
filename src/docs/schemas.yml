@@ -36,6 +36,8 @@ Members:
 
 Member:
   type: object
+  required:
+    - name
   properties:
     name:
       type: string
@@ -58,6 +60,10 @@ Projects:
 
 Project:
   type: object
+  required:
+    - id
+    - title
+    - category
   properties:
     id:
       $ref: "#/UniqueId"

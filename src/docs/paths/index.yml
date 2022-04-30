@@ -1,6 +1,9 @@
 /:
   get:
     $ref: "docs/redirect.yml"
+/health:
+  get:
+    $ref: "info/health.yml"
 /links:
   get:
     $ref: "links/get-social-links.yml"

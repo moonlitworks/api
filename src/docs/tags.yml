@@ -1,5 +1,7 @@
 - name: docs
   description: OpenAPI Documentation
+- name: info
+  description: API info endpoints
 - name: links
   description: Links to social media sites
 - name: projects
