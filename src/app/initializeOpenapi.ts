@@ -12,7 +12,7 @@ type OpenapiOptions = {
 }
 
 const defaultOpenapiOptions: OpenapiOptions = {
-  apiDocFilePath: resolve(__dirname, "..", "..", "lib", "docs", "openapi.yml"),
+  apiDocFilePath: "lib/docs/openapi.yml",
   apiDocUrl: "/oas3"
 }
 
