@@ -36,7 +36,7 @@ describe("ensureDb", () => {
     sandbox.stub(db, "isConnected").returns(false)
     const req = {
       operationDoc: {
-        "x-controller-skip-db-check": true
+        "x-skip-db-check": true
       }
     }
     ensureDb(req as any, res as any, next as any)
