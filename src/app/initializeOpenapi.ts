@@ -12,7 +12,7 @@ type OpenapiOptions = {
 }
 
 const defaultOpenapiOptions: OpenapiOptions = {
-  apiDocFilePath: "lib/docs/openapi.yml",
+  apiDocFilePath: resolve(__dirname, "..", "..", "lib", "docs", "openapi.yml"),
   apiDocUrl: "/oas3"
 }
 
@@ -21,7 +21,7 @@ export default (
 ) => (
   app: express.Application,
 ) => {
-  const apiDocContent = readFileSync(openapiOptions.apiDocFilePath, { encoding: "utf8" })
+  const apiDocContent = readFileSync(openapiOptions.apiDocFilePath, "utf8")
   const apiDocJson = load(apiDocContent) as any
   initializeOpenapi({
     app,

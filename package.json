@@ -39,7 +39,7 @@
     "start:dev": "env $(cat .env | grep -v \"#\" | xargs) ts-node src/index",
     "start:dev:build": "yarn build && env $(cat .env | grep -v \"#\" | xargs) ts-node src/index",
     "start:dev:lib": "env $(cat .env | grep -v \"#\" | xargs) node .",
-    "test": "nyc mocha"
+    "test": "yarn build:openapi && nyc mocha"
   },
   "devDependencies": {
     "@types/chai": "^4.3.1",
