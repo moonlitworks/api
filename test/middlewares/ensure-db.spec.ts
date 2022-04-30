@@ -30,4 +30,16 @@ describe("ensureDb", () => {
     expect(next.calledOnce).to.be.false
     expect(statusStub.firstCall?.firstArg).to.eql(503)
   })
+
+  it("should call next if db is not connected but endpoint skips db check", () => {
+    const next = sandbox.stub()
+    sandbox.stub(db, "isConnected").returns(false)
+    const req = {
+      operationDoc: {
+        "x-controller-skip-db-check": true
+      }
+    }
+    ensureDb(req as any, res as any, next as any)
+    expect(next.calledOnce).to.be.true
+  })
 })

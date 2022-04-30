@@ -7,7 +7,6 @@ export default (): express.Application => {
   app.use(express.json())
   app.use(express.urlencoded({ extended: true }))
   app.disable('x-powered-by')
-  app.use(ensureDb)
   app.use(errorHandler)
   return app
 }

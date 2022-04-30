@@ -1,5 +1,6 @@
 summary: "API health"
 operationId: health
+x-skip-db-check: true
 tags: ["info"]
 responses:
   200:

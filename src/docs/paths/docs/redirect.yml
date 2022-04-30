@@ -1,5 +1,6 @@
 summary: "Redirect to OpenAPI documentation"
 operationId: docsRedirect
+x-skip-db-check: true
 tags: ["docs"]
 responses:
   301:

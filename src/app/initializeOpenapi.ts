@@ -1,5 +1,9 @@
 import express from "express"
 import { initialize as initializeOpenapi } from "express-openapi"
+import { readFileSync } from "fs"
+import { resolve } from "path"
+import { load } from "js-yaml"
+import ensureDb from "../middlewares/ensure-db"
 import * as operations from "../operations"
 
 type OpenapiOptions = {
@@ -8,7 +12,7 @@ type OpenapiOptions = {
 }
 
 const defaultOpenapiOptions: OpenapiOptions = {
-  apiDocFilePath: "lib/docs/openapi.yml",
+  apiDocFilePath: resolve(__dirname, "..", "..", "lib", "docs", "openapi.yml"),
   apiDocUrl: "/oas3"
 }
 
@@ -17,9 +21,14 @@ export default (
 ) => (
   app: express.Application,
 ) => {
+  const apiDocContent = readFileSync(openapiOptions.apiDocFilePath, { encoding: "utf8" })
+  const apiDocJson = load(apiDocContent) as any
   initializeOpenapi({
     app,
-    apiDoc: openapiOptions.apiDocFilePath,
+    apiDoc: {
+      ...apiDocJson,
+      "x-express-openapi-additional-middleware": [ensureDb],
+    },
     docsPath: openapiOptions.apiDocUrl,
     operations,
   })
