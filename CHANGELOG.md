@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/moonlitworks/api/compare/v0.0.3...v0.0.4) (2022-04-30)
+
+
+### Features
+
+* **api:** add projects service ([4339f1e](https://github.com/moonlitworks/api/commit/4339f1e174e57b7027125d2977e4d57b8886cc77))
+
 ### [0.0.3](https://github.com/moonlitworks/api/compare/v0.0.2...v0.0.3) (2022-04-29)
 
 
