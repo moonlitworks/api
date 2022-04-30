@@ -8,7 +8,6 @@ parameters:
     description: Link label
     schema:
       $ref: "../../schemas.yml#/SocialLinkLabel"
-
 responses:
   200:
     description: "Social link URL"
@@ -18,3 +17,5 @@ responses:
           $ref: "../../schemas.yml#/SocialLinkUrl"
   404:
     description: "Social link of label not found"
+  503:
+    description: "Service is not available"

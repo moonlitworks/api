@@ -1,6 +1,8 @@
 import { Mongoose, Schema, Document } from "mongoose"
-import createMongoRepository from "../repository/create-mongo-repository"
-import { Link } from "./types"
+import createMongoRepository from "./create-mongo-repository"
+import { Link } from "../links/types"
+
+type LinkDocument = Document & Link
 
 const LinkSchema = new Schema({
 	label: {
@@ -18,8 +20,6 @@ const LinkSchema = new Schema({
 	versionKey: false,
 	strict: false
 });
-
-type LinkDocument = Document & Link
 
 export const toSocialLink = (
 	document: LinkDocument

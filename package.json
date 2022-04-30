@@ -32,13 +32,13 @@
     "build:test": "yarn build && yarn test",
     "build:openapi": "npx swagger-cli bundle --dereference --type yaml --outfile lib/docs/openapi.yml src/docs/openapi.yml && yarn build:openapi:version",
     "build:openapi:version": "sed -i -e \"s/%PACKAGE_VERSION%/$npm_package_version/g\" lib/docs/openapi.yml",
-    "dev": "env $(cat .env | grep -v \"#\" | xargs) ts-node src/index",
-    "dev:build": "yarn build && env $(cat .env | grep -v \"#\" | xargs) ts-node src/index",
-    "dev:lib": "env $(cat .env | grep -v \"#\" | xargs) node .",
     "release": "npx standard-version --sign",
     "release:dev": "npx standard-version --sign --prerelease",
     "release:dryrun": "npx standard-version --dry-run",
     "start": "node .",
+    "start:dev": "env $(cat .env | grep -v \"#\" | xargs) ts-node src/index",
+    "start:dev:build": "yarn build && env $(cat .env | grep -v \"#\" | xargs) ts-node src/index",
+    "start:dev:lib": "env $(cat .env | grep -v \"#\" | xargs) node .",
     "test": "nyc mocha"
   },
   "devDependencies": {

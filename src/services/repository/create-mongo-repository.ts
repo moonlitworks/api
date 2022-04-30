@@ -1,4 +1,4 @@
-import { Mongoose, Schema, Model } from "mongoose"
+import { Mongoose, Schema, Model, isValidObjectId } from "mongoose"
 
 type DocumentParser<T> = (...args: any[]) => T
 
@@ -16,6 +16,7 @@ const createModelGetAll = <T>(model: Model<T>, parser: DocumentParser<T>) => asy
 }
 
 const createModelGet = <T>(model: Model<T>, parser: DocumentParser<T>) => async (id: string) => {
+  if (!isValidObjectId(id)) return null
   const doc = await model.findById(id)
   return doc ? parser(doc) : null
 }

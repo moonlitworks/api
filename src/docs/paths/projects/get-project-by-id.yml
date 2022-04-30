@@ -1,0 +1,21 @@
+summary: "Get project"
+operationId: getProjectById
+tags: ["projects"]
+parameters:
+  - name: id
+    in: path
+    required: true
+    description: Project Id
+    schema:
+      $ref: "../../schemas.yml#/UniqueId"
+responses:
+  200:
+    description: "Project found"
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/Project"
+  404:
+    description: "Project not found"
+  503:
+    description: "Service is not available"

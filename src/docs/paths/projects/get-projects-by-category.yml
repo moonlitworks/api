@@ -1,0 +1,19 @@
+summary: "Get projects by category"
+operationId: getProjectsByCategory
+tags: ["projects"]
+parameters:
+  - name: category
+    in: path
+    required: true
+    description: Project Id
+    schema:
+      $ref: "../../schemas.yml#/Category"
+responses:
+  200:
+    description: "Project found"
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/Projects"
+  503:
+    description: "Service is not available"

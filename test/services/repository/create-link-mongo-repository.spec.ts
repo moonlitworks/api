@@ -1,6 +1,6 @@
 import sinon from "sinon"
 import { expect } from "chai"
-import createLinkMongoRepository, { toSocialLink } from "../../../src/services/links/create-link-mongo-repository"
+import createLinkMongoRepository, { toSocialLink } from "../../../src/services/repository/create-link-mongo-repository"
 import * as createMongoRepository from "../../../src/services/repository/create-mongo-repository"
 
 describe("createLinkMongoRepository", () => {

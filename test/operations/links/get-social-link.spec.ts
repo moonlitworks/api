@@ -1,8 +1,7 @@
 import sinon from "sinon"
 import { expect } from "chai"
 import { getSocialLink } from "../../../src/operations/links/get-social-link"
-import db from "../../../src/app/db"
-import * as createLinkMongoRepository from "../../../src/services/links/create-link-mongo-repository"
+import * as createLinkMongoRepository from "../../../src/services/repository/create-link-mongo-repository"
 
 describe("getSocialLink", () => {
   let sandbox: sinon.SinonSandbox
@@ -37,7 +36,6 @@ describe("getSocialLink", () => {
   }
 
   it("should return 404 if result array is empty", async () => {
-    sandbox.stub(db, "isConnected").returns(true)
     sandbox.stub(createLinkMongoRepository, "default").returns({
       ...sampleLinkRepository,
       query: async () => []
@@ -55,7 +53,6 @@ describe("getSocialLink", () => {
   })
 
   it("should return 404 if results don't have active links", async () => {
-    sandbox.stub(db, "isConnected").returns(true)
     sandbox.stub(createLinkMongoRepository, "default").returns({
       ...sampleLinkRepository,
       query: async () => [
@@ -80,7 +77,6 @@ describe("getSocialLink", () => {
   })
 
   it("should set content-type to text/plain", async () => {
-    sandbox.stub(db, "isConnected").returns(true)
     sandbox.stub(createLinkMongoRepository, "default").returns(sampleLinkRepository)
     const setStub = sandbox.stub(res, "set")
     const req = {
@@ -97,7 +93,6 @@ describe("getSocialLink", () => {
   })
 
   it("should return 200 status code", async () => {
-    sandbox.stub(db, "isConnected").returns(true)
     sandbox.stub(createLinkMongoRepository, "default").returns(sampleLinkRepository)
     const statusStub = sandbox.stub(res, "status").returns(res)
     const req = {
@@ -112,7 +107,6 @@ describe("getSocialLink", () => {
   })
 
   it("should call end", async () => {
-    sandbox.stub(db, "isConnected").returns(true)
     sandbox.stub(createLinkMongoRepository, "default").returns(sampleLinkRepository)
     const endStub = sandbox.stub(res, "end")
     const req = {

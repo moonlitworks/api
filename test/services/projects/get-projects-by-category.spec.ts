@@ -1,8 +1,8 @@
 import sinon from "sinon"
 import { expect } from "chai"
-import getLinkByLabel from "../../../src/services/links/get-link-by-label"
+import getProjectsByCategory from "../../../src/services/projects/get-projects-by-category"
 
-describe("getLinkByLabel", () => {
+describe("getProjectsByCategory", () => {
   let sandbox: sinon.SinonSandbox
   beforeEach(() => { sandbox = sinon.createSandbox() })
   afterEach(() => { sandbox.restore() })
@@ -11,10 +11,10 @@ describe("getLinkByLabel", () => {
     query: async () => []
   }
 
-  it("should call query of repository with label", async () => {
+  it("should call query of repository with category", async () => {
     const stub = sandbox.stub(testRepo, "query")
-    await getLinkByLabel(testRepo)("test-label")
+    await getProjectsByCategory(testRepo)("test-category")
     expect(stub.calledOnce).to.be.true
-    expect(stub.firstCall?.firstArg).to.eql({ label: "test-label" })
+    expect(stub.firstCall?.firstArg).to.eql({ category: "test-category" })
   })
 })

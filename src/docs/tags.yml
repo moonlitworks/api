@@ -2,3 +2,5 @@
   description: OpenAPI Documentation
 - name: links
   description: Links to social media sites
+- name: projects
+  description: Moonlit Works projects

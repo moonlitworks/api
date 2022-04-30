@@ -1,3 +1,7 @@
+UniqueId:
+  type: string
+  example: "abc123456"
+
 SocialLinks:
   type: array
   items:
@@ -24,3 +28,53 @@ SocialLinkLabel:
 SocialLinkUrl:
   type: string
   example: "https://twitter.com/MoonlitWorks"
+
+Members:
+  type: array
+  items:
+    $ref: "#/Member"
+
+Member:
+  type: object
+  properties:
+    name:
+      type: string
+      example: "Eyzi"
+    asset:
+      type: string
+      example: "Lead"
+    link:
+      type: string
+      example: "https://twitter.com/TheEyzi"
+
+Category:
+  type: string
+  example: "storyclips"
+
+Projects:
+  type: array
+  items:
+    $ref: "#/Project"
+
+Project:
+  type: object
+  properties:
+    id:
+      $ref: "#/UniqueId"
+    title:
+      type: string
+      example: "Third Wheel - Part 3"
+    category:
+      $ref: "#/Category"
+    series:
+      type: string
+      example: "Third Wheel"
+    links:
+      $ref: "#/SocialLinks"
+    tags:
+      type: array
+      items:
+        type: string
+        example: "soon"
+    members:
+      $ref: "#/Members"

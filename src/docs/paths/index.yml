@@ -7,3 +7,12 @@
 /links/{label}:
   get:
     $ref: "links/get-social-link-by-label.yml"
+/projects:
+  get:
+    $ref: "projects/get-projects.yml"
+/projects/{id}:
+  get:
+    $ref: "projects/get-project-by-id.yml"
+/projects/categories/{category}:
+  get:
+    $ref: "projects/get-projects-by-category.yml"

@@ -41,9 +41,10 @@ describe("createMongoRepository", () => {
       ...testOptions,
       documentParser: (s: string): number => +s
     } as any)
-    const result = await repository.get("test")
+    const SAMPLE_ID = "5e63c3a5e4232e4cd0274ac2"
+    const result = await repository.get(SAMPLE_ID)
     expect(result).to.eql(1)
-    expect(findStub.firstCall?.firstArg).to.eql("test")
+    expect(findStub.firstCall?.firstArg).to.eql(SAMPLE_ID)
   })
 
   it("should return null for empty get result", async () => {
@@ -52,9 +53,22 @@ describe("createMongoRepository", () => {
       ...testOptions,
       documentParser: (s: string): number => +s
     } as any)
-    const result = await repository.get("test")
+    const SAMPLE_ID = "5e63c3a5e4232e4cd0274ac2"
+    const result = await repository.get(SAMPLE_ID)
     expect(result).to.eql(null)
-    expect(findStub.firstCall?.firstArg).to.eql("test")
+    expect(findStub.firstCall?.firstArg).to.eql(SAMPLE_ID)
+  })
+
+  it("should return null for invalid id", async () => {
+    const findStub = sandbox.stub(testModel, "findById").returns("1" as any)
+    const repository = createMongoRepository(testDb as any, {
+      ...testOptions,
+      documentParser: (s: string): number => +s
+    } as any)
+    const SAMPLE_ID = "abc123456"
+    const result = await repository.get(SAMPLE_ID)
+    expect(result).to.eql(null)
+    expect(findStub.calledOnce).to.be.false
   })
 
   it("should query and parse", async () => {

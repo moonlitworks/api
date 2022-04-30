@@ -9,11 +9,11 @@ export type Listable<T> = {
 }
 
 export type Retrievable<T extends hasId> = {
-  get: (id: T["id"]) => Promisable<T>
+  get: (id: T["id"]) => Promisable<T | null>
 }
 
 export type Creatable<T extends hasId> = {
-  create: (body: Partial<T>) => T
+  create: (body: Partial<T>) => Promisable<T | boolean>
 }
 
 export type Updatable<T extends hasId, UpdateQuery = Partial<T>> = {

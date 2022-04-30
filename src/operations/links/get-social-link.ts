@@ -1,5 +1,5 @@
 import { Handler } from "express"
-import createLinkMongoRepository from "../../services/links/create-link-mongo-repository"
+import createLinkMongoRepository from "../../services/repository/create-link-mongo-repository"
 import getLinkByLabel from "../../services/links/get-link-by-label"
 import db from "../../app/db"
 

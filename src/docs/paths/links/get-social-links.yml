@@ -16,3 +16,5 @@ responses:
         description: >
           The `label` value returned in the response array can be used
           as the `label` parameter in `GET /links/{label}`
+  503:
+    description: "Service is not available"
