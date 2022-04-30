@@ -1,6 +1,6 @@
 {
   "name": "@moonlitworks/api",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Moonlit Works API",
   "main": "lib/index.js",
   "author": "Eyzi <contact@eyzi.dev>",
