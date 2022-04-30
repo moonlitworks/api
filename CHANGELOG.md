@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/moonlitworks/api/compare/v1.0.4...v1.1.0) (2022-04-30)
+
+
+### Features
+
+* **api:** implement db check skip ([116ce0d](https://github.com/moonlitworks/api/commit/116ce0d073cef5fb2a7f77687d8e9bb12d3b7f56))
+
+
+### Bug Fixes
+
+* **api:** openapi doc file path ([eb7f648](https://github.com/moonlitworks/api/commit/eb7f64894d39dc42a39d3f38ce711eda3837f293))
+* **api:** revert openapi file path ([3c3263f](https://github.com/moonlitworks/api/commit/3c3263fe3f205c19e214d9e895f0ccc78e105f73))
+
 ### [1.0.4](https://github.com/moonlitworks/api/compare/v1.0.3...v1.0.4) (2022-04-30)
 
 ### [1.0.3](https://github.com/moonlitworks/api/compare/v1.0.2...v1.0.3) (2022-04-30)
