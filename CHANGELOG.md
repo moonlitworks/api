@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/moonlitworks/api/compare/v0.0.4...v0.0.5) (2022-04-30)
+
+
+### Features
+
+* **api:** add health service ([4e85048](https://github.com/moonlitworks/api/commit/4e85048c3502c6583889b9908226a935dd714626))
+
 ### [0.0.4](https://github.com/moonlitworks/api/compare/v0.0.3...v0.0.4) (2022-04-30)
 
 
