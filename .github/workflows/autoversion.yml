@@ -1,4 +1,4 @@
-name: Autoversion
+name: autoversion
 
 on:
   push:
