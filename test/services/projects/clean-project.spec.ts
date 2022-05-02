@@ -8,7 +8,7 @@ describe("cleanProject", () => {
       active: true,
       title: "test-title",
       category: "test-category",
-      series: null,
+      series: undefined,
       links: [],
       tags: [],
       members: []
@@ -17,7 +17,7 @@ describe("cleanProject", () => {
       id: "test-id",
       title: "test-title",
       category: "test-category",
-      series: null,
+      series: undefined,
       links: [],
       tags: [],
       members: []

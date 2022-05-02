@@ -1,6 +1,7 @@
 import { Mongoose, Schema, Document } from "mongoose"
 import createMongoRepository from "./create-mongo-repository"
 import { Project } from "../projects/types"
+import omitNilProperties from "../common/omit-nil-properties"
 
 type ProjectDocument = Document & Project
 
@@ -12,7 +13,8 @@ const ProjectLinksSchema = new Schema({
 const ProjectMemberSchema = new Schema({
   name: String,
   asset: String,
-  link: String
+  link: String,
+  image: String,
 })
 
 const ProjectSchema = new Schema({
@@ -34,13 +36,15 @@ const ProjectSchema = new Schema({
 
 export const toProject = (
 	document: ProjectDocument
-): Project => ({
-	id: document._id,
+) => omitNilProperties({
+	id: document._id.toString(),
 	active: document.active,
   title: document.title,
   category: document.category,
-  series: document.series ?? null,
-  links: document.links ?? [],
+  series: document.series,
+  releaseDate: document.releaseDate,
+  capsule: document.capsule,
+  links: document.links?.map(omitNilProperties) ?? [],
   tags: document.tags ?? [],
   members: document.members ?? []
 })

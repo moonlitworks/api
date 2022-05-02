@@ -81,7 +81,6 @@ describe("toProject", () => {
       active: true,
       title: "test-title",
       category: "test-category",
-      series: null,
       links: [],
       tags: [],
       members: []

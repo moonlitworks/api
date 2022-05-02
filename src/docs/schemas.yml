@@ -29,6 +29,10 @@ SocialLinkUrl:
   type: string
   example: "https://twitter.com/MoonlitWorks"
 
+ImageUrl:
+  type: string
+  example: "https://cdn.moonlit.works/capsules/storyclips.png"
+
 Members:
   type: array
   items:
@@ -38,6 +42,7 @@ Member:
   type: object
   required:
     - name
+    - asset
   properties:
     name:
       type: string
@@ -48,6 +53,9 @@ Member:
     link:
       type: string
       example: "https://twitter.com/TheEyzi"
+    image:
+      type: string
+      $ref: "#/ImageUrl"
 
 Category:
   type: string
@@ -75,6 +83,11 @@ Project:
     series:
       type: string
       example: "Third Wheel"
+    releaseDate:
+      type: string
+      format: date
+    capsule:
+      $ref: "#/ImageUrl"
     links:
       $ref: "#/SocialLinks"
     tags:

@@ -1,6 +1,7 @@
 import { Mongoose, Schema, Document } from "mongoose"
 import createMongoRepository from "./create-mongo-repository"
 import { Link } from "../links/types"
+import omitNilProperties from "../common/omit-nil-properties";
 
 type LinkDocument = Document & Link
 
@@ -23,8 +24,8 @@ const LinkSchema = new Schema({
 
 export const toSocialLink = (
 	document: LinkDocument
-): Link => ({
-	id: document._id,
+): Link => omitNilProperties({
+	id: document._id.toString(),
 	active: document.active,
 	label: document.label,
 	url: document.url
