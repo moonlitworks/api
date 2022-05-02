@@ -1,6 +1,12 @@
 summary: "Get list of projects"
 operationId: getProjects
 tags: ["projects"]
+parameters:
+  - name: category
+    in: query
+    description: Project category
+    schema:
+      $ref: "../../schemas.yml#/Category"
 responses:
   200:
     description: "List of projects"

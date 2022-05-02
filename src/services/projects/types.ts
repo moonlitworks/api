@@ -11,7 +11,7 @@ export type Project = {
   active: boolean
   title: string
   category: string
-  series: string
+  series: string | null
   links: Omit<Link, "id">[]
   tags: string[]
   members: TeamMember[]

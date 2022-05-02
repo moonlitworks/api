@@ -16,6 +16,3 @@
 /projects/{id}:
   get:
     $ref: "projects/get-project-by-id.yml"
-/projects/categories/{category}:
-  get:
-    $ref: "projects/get-projects-by-category.yml"

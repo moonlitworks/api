@@ -1,6 +1,6 @@
 import sinon from "sinon"
 import { expect } from "chai"
-import getProjects from "../../../src/services/projects/get-projects"
+import queryProjects from "../../../src/services/projects/query-projects"
 
 describe("getProjects", () => {
   let sandbox: sinon.SinonSandbox
@@ -8,12 +8,12 @@ describe("getProjects", () => {
   afterEach(() => { sandbox.restore() })
 
   const testRepo = {
-    getAll: async () => []
+    query: async () => []
   }
 
-  it("should call getAll of repository", async () => {
-    const stub = sandbox.stub(testRepo, "getAll")
-    await getProjects(testRepo)()
+  it("should call query of repository", async () => {
+    const stub = sandbox.stub(testRepo, "query")
+    await queryProjects(testRepo)({})
     expect(stub.calledOnce).to.be.true
   })
 })

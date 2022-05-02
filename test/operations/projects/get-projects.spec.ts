@@ -23,7 +23,7 @@ describe("getProjects", () => {
 
   it("should return 200 status code and call res.json", async () => {
     sandbox.stub(createProjectMongoRepository, "default").returns(sampleProjectRepository)
-    sandbox.stub(sampleProjectRepository, "getAll").returns([] as any)
+    sandbox.stub(sampleProjectRepository, "query").returns([] as any)
     const statusStub = sandbox.stub(res, "status").returns(res)
     const jsonStub = sandbox.stub(res, "json")
     await getProjects({} as any, res as any, {} as any)
@@ -33,7 +33,7 @@ describe("getProjects", () => {
 
   it("should filter inactive projects", async () => {
     sandbox.stub(createProjectMongoRepository, "default").returns(sampleProjectRepository)
-    sandbox.stub(sampleProjectRepository, "getAll").returns([
+    sandbox.stub(sampleProjectRepository, "query").returns([
       {
         id: "test-id-1",
         active: false,
