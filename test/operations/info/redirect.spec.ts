@@ -1,6 +1,6 @@
 import sinon from "sinon"
 import { expect } from "chai"
-import { docsRedirect } from "../../../src/operations/docs/redirect"
+import { docsRedirect } from "../../../src/operations/info/redirect"
 
 describe("docsRedirect", () => {
   let sandbox: sinon.SinonSandbox

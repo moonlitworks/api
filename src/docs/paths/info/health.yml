@@ -1,4 +1,4 @@
-summary: "API health"
+summary: "API health check"
 operationId: health
 x-skip-db-check: true
 tags: ["info"]
@@ -16,3 +16,16 @@ responses:
               type: string
               enum:
                 - "UP"
+  503:
+    description: "API server is up but not connected to database"
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+          properties:
+            status:
+              type: string
+              enum:
+                - "DOWN"
