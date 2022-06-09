@@ -14,14 +14,10 @@ jobs:
         name: Checkout
         with:
           fetch-depth: 0
-      - uses: borales/actions-yarn@v2.3.0
-        name: Install dependencies
-        with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.3.0
-        name: Run Test
-        with:
-          cmd: test
+      - name: Install dependencies
+        run: yarn install
+      - name: Run Test
+        run: yarn test
 
   version:
     name: Version Bump
