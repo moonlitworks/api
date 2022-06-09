@@ -52,15 +52,15 @@ jobs:
     needs: [test]
     if: "contains(github.event.head_commit.message, 'chore(release)')"
     steps:
-      - name: Get package version
-        uses: martinbeentjes/npm-get-version-action@master
-        id: package_version
+      - name: Get version
+        id: version
+        run: |
+          echo "::set-output name=semver::$(git describe --tags | sed 's/v//')"
       - name: Set image tag
         id: tag
         run: |
           echo "::set-output name=bare::${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}"
-          echo "::set-output name=version::${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:${{ steps.package_version.outputs.current-version }}"
-          echo "::set-output name=latest::${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:latest"
+          echo "::set-output name=version::${{ secrets.DOCKER_REGISTRY }}/${{ secrets.DOCKER_REPOSITORY }}:${{ steps.package_version.outputs.semver }}"
       - uses: docker/login-action@v1
         name: Login to docker registry
         with:
@@ -68,6 +68,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build image
-        run: docker build -t ${{ steps.tag.outputs.latest }} -t ${{ steps.tag.outputs.version }} .
+        run: docker build -t ${{ steps.tag.outputs.version }} .
       - name: Push image
         run: docker image push ${{ steps.tag.outputs.bare }} --all-tags
