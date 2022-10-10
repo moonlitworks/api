@@ -36,6 +36,9 @@ jobs:
         name: Checkout
         with:
           fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: Import GPG Key
         uses: crazy-max/ghaction-import-gpg@v4
         id: import_gpg
@@ -49,8 +52,6 @@ jobs:
           git_tag_gpgsign: true
       - name: Publish
         run: |
-          export NVM_DIR=~/.nvm
-          source ~/.nvm/nvm.sh
           git config --local gpg.program $(which gpg)
           git remote set-url origin "https://${{secrets.GIT_NAME}}:${{secrets.GIT_TOKEN}}@github.com/$GITHUB_REPOSITORY"
           npm run release
