@@ -32,6 +32,10 @@ jobs:
     needs: [test]
     if: "!contains(github.event.head_commit.message, 'chore(release)')"
     steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+        with:
+          fetch-depth: 0
       - name: Import GPG Key
         uses: crazy-max/ghaction-import-gpg@v4
         id: import_gpg
@@ -56,6 +60,10 @@ jobs:
     needs: [test]
     if: "contains(github.event.head_commit.message, 'chore(release)')"
     steps:
+      - uses: actions/checkout@v2
+        name: Checkout
+        with:
+          fetch-depth: 0
       - name: Get version
         id: version
         run: |
