@@ -48,6 +48,8 @@ jobs:
           git_commit_gpgsign: true
           git_tag_gpgsign: true
       - name: Publish
+        env:
+          GITHUB_TOKEN: ${{secrets.GIT_TOKEN}}
         run: |
           git config --local gpg.program $(which gpg)
           git remote set-url origin "https://${{secrets.GIT_NAME}}:${{secrets.GIT_TOKEN}}@github.com/$GITHUB_REPOSITORY"
