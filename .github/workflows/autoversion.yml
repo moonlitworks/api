@@ -33,6 +33,7 @@ jobs:
         name: Checkout
         with:
           fetch-depth: 0
+          token: ${{ secrets.GIT_TOKEN }}
       - uses: actions/setup-node@v3
         with:
           node-version: 16
@@ -52,7 +53,6 @@ jobs:
           GITHUB_TOKEN: ${{secrets.GIT_TOKEN}}
         run: |
           git config --local gpg.program $(which gpg)
-          git remote set-url origin "https://${{secrets.GIT_NAME}}:${{secrets.GIT_TOKEN}}@github.com/$GITHUB_REPOSITORY"
           npm run release
           git push --follow-tags origin main
 
