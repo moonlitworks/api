@@ -4,7 +4,7 @@ import isNil, { Nil } from "./is-nil"
 type NonNilValue<U> = U extends Nil ? never : U
 type NonNilObject<T> = Record<keyof T, NonNilValue<T[keyof T]>>
 
-const omitNilProperties = <T>(obj: T) => {
+const omitNilProperties = <T extends object>(obj: T) => {
   let cleanObj = {} as NonNilObject<T>
   Object.keys(obj).forEach((key: string) => {
     const value = obj[key as keyof T]
