@@ -7,13 +7,15 @@ type SwaggerOptions = {
   title?: string
   faviconUrl?: string
   customCss?: string
+  customCssUrl?: string
 }
 
 const defaultSwaggerOptions: SwaggerOptions = {
   path: "/docs",
   title: "Moonlit Works API",
   faviconUrl: "https://cdn.moonlit.works/www/favicon.ico",
-  customCss: '.swagger-container > .topbar, .swagger-container > .wrapper, .info > .main > .link { display: none }',
+  // customCss: '.swagger-container > .topbar, .swagger-container > .wrapper, .info > .main > .link { display: none }',
+  customCssUrl: '/swagger.css',
   oasUrl: "/oas3"
 }
 
@@ -26,6 +28,7 @@ export default (
     customSiteTitle: swaggerOptions.title,
     customfavIcon: swaggerOptions.faviconUrl,
     customCss: defaultSwaggerOptions.customCss,
+    customCssUrl: defaultSwaggerOptions.customCssUrl,
     swaggerOptions: {
       url: swaggerOptions.oasUrl,
       displayOperationId: true,
