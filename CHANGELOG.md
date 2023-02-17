@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/moonlitworks/api/compare/v1.2.13...v1.3.0) (2023-02-17)
+
+
+### Features
+
+* **api:** getContributors ([3b334cb](https://github.com/moonlitworks/api/commit/3b334cb8c3ff3da46f5a92267a35fcc1f1f0e1f3))
+
 ### [1.2.13](https://github.com/moonlitworks/api/compare/v1.2.12...v1.2.13) (2023-02-05)
 
 ### [1.2.12](https://github.com/moonlitworks/api/compare/v1.2.11...v1.2.12) (2022-10-10)
