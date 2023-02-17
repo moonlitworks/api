@@ -97,3 +97,23 @@ Project:
         example: "soon"
     members:
       $ref: "#/Members"
+
+Contributors:
+  type: array
+  items:
+    $ref: "#/Contributor"
+
+Contributor:
+  type: object
+  required:
+    - name
+    - contribution
+  properties:
+    name:
+      type: string
+    contribution:
+      type: string
+    image:
+      type: string
+    links:
+      $ref: "#/SocialLinks"

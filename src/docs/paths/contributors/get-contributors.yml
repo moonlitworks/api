@@ -1,0 +1,12 @@
+summary: "Get list of contributors"
+operationId: getContributors
+tags: ["contributors"]
+responses:
+  200:
+    description: "List of contributors"
+    content:
+      application/json:
+        schema:
+          $ref: "../../schemas.yml#/Contributors"
+  503:
+    description: "Service is not available"

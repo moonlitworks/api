@@ -5,7 +5,7 @@ import omitNilProperties from "../common/omit-nil-properties"
 
 type ProjectDocument = Document & Project
 
-const ProjectLinksSchema = new Schema({
+const ProjectLinkSchema = new Schema({
   label: String,
   url: String
 })
@@ -25,7 +25,7 @@ const ProjectSchema = new Schema({
   title: String,
   category: String,
   series: String,
-  links: [ProjectLinksSchema],
+  links: [ProjectLinkSchema],
   tags: [String],
   members: [ProjectMemberSchema]
 }, {

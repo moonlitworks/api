@@ -16,3 +16,6 @@
 /projects/{id}:
   get:
     $ref: "projects/get-project-by-id.yml"
+/contributors:
+  get: 
+    $ref: "contributors/get-contributors.yml"
